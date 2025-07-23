@@ -23,11 +23,11 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable()) // Disable CSRF for REST APIs
             .authorizeHttpRequests(auth -> auth
-            		 .requestMatchers(HttpMethod.GET, "/student-api").hasRole("EMPLOYEE")
-                     .requestMatchers(HttpMethod.GET, "/student-api/**").hasRole("EMPLOYEE")
-                     .requestMatchers(HttpMethod.POST, "/student-api").hasRole("MANAGER")
-                     .requestMatchers(HttpMethod.PUT, "/student-api").hasRole("MANAGER")
-                     .requestMatchers(HttpMethod.DELETE, "/student-api/**").hasRole("ADMIN")
+            		 .requestMatchers(HttpMethod.GET, "/customer-api").hasRole("USER")
+                     .requestMatchers(HttpMethod.GET, "/customer-api/**").hasRole("USER")
+                     .requestMatchers(HttpMethod.POST, "/customer-api").hasRole("USER")
+                     .requestMatchers(HttpMethod.PUT, "/customer-api").hasRole("USER")
+                     .requestMatchers(HttpMethod.DELETE, "/customer-api/**").hasRole("USER")
             )
             .httpBasic(Customizer.withDefaults()); // or use .formLogin() for web apps
 
